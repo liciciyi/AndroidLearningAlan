@@ -1,6 +1,5 @@
 package com.alan.root.servicetest;
 
-import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
@@ -13,13 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.List;
-
-
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
     private Button btnStopService, btnStartService, btnBindService,
-            btnUnbindService,btnStartIntentService,btnLongRunningService;
+            btnUnbindService, btnStartIntentService, btnLongRunningService;
 
     private MyService.DownloadBinder downloadBinder;
     private ServiceConnection connection = new ServiceConnection() {
@@ -105,13 +101,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
             case R.id.btnStartIntentService:
                 Log.d("MainActivity", "Thread id is " + Thread.currentThread().getId());
-                Intent intentService = new Intent(this,MyIntentService.class);
+                Intent intentService = new Intent(this, MyIntentService.class);
                 startService(intentService);
                 break;
 
             case R.id.btnLongRunningService:
                 Log.d("MainActivity", "Thread id is " + Thread.currentThread().getId());
-                Intent longRunningService = new Intent(this,LongRunningService.class);
+                Intent longRunningService = new Intent(this, LongRunningService.class);
                 startService(longRunningService);
                 break;
 
