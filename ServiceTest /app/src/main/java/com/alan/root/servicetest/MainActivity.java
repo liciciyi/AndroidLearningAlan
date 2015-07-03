@@ -1,8 +1,13 @@
 package com.alan.root.servicetest;
 
+import android.app.Service;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,7 +16,24 @@ import android.widget.Button;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
-    private Button btnStartService, btnStopService;
+    private Button btnStopService, btnStartService, btnBindService,
+            btnUnbindService,btnStartIntentService;
+
+    private MyService.DownloadBinder downloadBinder;
+    private ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+
+            downloadBinder = (MyService.DownloadBinder) service;
+            downloadBinder.startDownload();
+            downloadBinder.getProgress();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +42,15 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         btnStartService = (Button) findViewById(R.id.btnStartService);
         btnStopService = (Button) findViewById(R.id.btnStopService);
+        btnBindService = (Button) findViewById(R.id.btnBindService);
+        btnUnbindService = (Button) findViewById(R.id.btnUnbindService);
+        btnStartIntentService = (Button) findViewById(R.id.btnStartIntentService);
+
         btnStopService.setOnClickListener(this);
         btnStartService.setOnClickListener(this);
+        btnBindService.setOnClickListener(this);
+        btnUnbindService.setOnClickListener(this);
+        btnStartIntentService.setOnClickListener(this);
     }
 
     @Override
@@ -48,20 +77,36 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
 
             case R.id.btnStartService:
-
-                Intent startIntent = new Intent(MainActivity.this, MyService.class);
+                Intent startIntent = new Intent(this, MyService.class);
                 startService(startIntent);
                 break;
 
             case R.id.btnStopService:
-                Intent stopIntent = new Intent(MainActivity.this, MyService.class);
+                Intent stopIntent = new Intent(this, MyService.class);
                 stopService(stopIntent);
                 break;
 
-            default:break;
+            case R.id.btnBindService:
+                Intent bindIntent = new Intent(this, MyService.class);
+                bindService(bindIntent, connection, BIND_AUTO_CREATE);
+                break;
+
+            case R.id.btnUnbindService:
+                unbindService(connection);
+                break;
+
+            case R.id.btnStartIntentService:
+                Log.d("MainActivity", "Thread id is " + Thread.currentThread().getId());
+                Intent intentService = new Intent(this,MyIntentService.class);
+                startService(intentService);
+                break;
+
+            default:
+                break;
         }
     }
 }
