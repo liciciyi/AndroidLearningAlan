@@ -13,11 +13,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.List;
+
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
     private Button btnStopService, btnStartService, btnBindService,
-            btnUnbindService,btnStartIntentService;
+            btnUnbindService,btnStartIntentService,btnLongRunningService;
 
     private MyService.DownloadBinder downloadBinder;
     private ServiceConnection connection = new ServiceConnection() {
@@ -45,12 +47,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         btnBindService = (Button) findViewById(R.id.btnBindService);
         btnUnbindService = (Button) findViewById(R.id.btnUnbindService);
         btnStartIntentService = (Button) findViewById(R.id.btnStartIntentService);
+        btnLongRunningService = (Button) findViewById(R.id.btnLongRunningService);
 
         btnStopService.setOnClickListener(this);
         btnStartService.setOnClickListener(this);
         btnBindService.setOnClickListener(this);
         btnUnbindService.setOnClickListener(this);
         btnStartIntentService.setOnClickListener(this);
+        btnLongRunningService.setOnClickListener(this);
     }
 
     @Override
@@ -103,6 +107,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 Log.d("MainActivity", "Thread id is " + Thread.currentThread().getId());
                 Intent intentService = new Intent(this,MyIntentService.class);
                 startService(intentService);
+                break;
+
+            case R.id.btnLongRunningService:
+                Log.d("MainActivity", "Thread id is " + Thread.currentThread().getId());
+                Intent longRunningService = new Intent(this,LongRunningService.class);
+                startService(longRunningService);
                 break;
 
             default:

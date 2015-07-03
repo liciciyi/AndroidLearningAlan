@@ -34,4 +34,10 @@
         android:layout_height="wrap_content"
         android:text="btnStartIntentService" />
 
+    <Button
+        android:id="@+id/btnLongRunningService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btnLongRunningService" />
+
 </LinearLayout>
