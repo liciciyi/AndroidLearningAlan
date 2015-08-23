@@ -2,8 +2,12 @@ package com.alan.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.alan.root.labeledittext.R;
 
 /**
  * Created by root on 15-8-23.
@@ -19,16 +23,14 @@ public class LabelEditText extends LinearLayout {
     private int labelFontSize;
     private String labelPosition;
 
-
     public LabelEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
 
 //        读取labelText属性的资源ID
         int resouceId = attrs.getAttributeResourceValue(null, "labelText", 0);
 //        未获取资源ID，继续读取属性值
-        if (resouceId == 0) {
+        if (resouceId == 0)
             labelText = attrs.getAttributeValue(null, "labelText");
-        }
 //        从资源文件中获取label属性的值
         else
             labelText = getResources().getString(resouceId);
@@ -55,13 +57,30 @@ public class LabelEditText extends LinearLayout {
         if (resouceId == 0) {
             labelPosition = attrs.getAttributeValue(null, "labelPosition");
         }
-//        从资源文件中获取labelFontSize属性的值
+//        从资源文件中获取labelPosition属性的值
         else
             labelPosition = getResources().getString(resouceId);
 
         if (labelPosition == null) {
             labelPosition = "left";
         }
+
+        String infService = Context.LAYOUT_INFLATER_SERVICE;
+        LayoutInflater li;
+//        获得LAYOUT_INFLATER_SERVICE服务
+        li = (LayoutInflater) context.getSystemService(infService);
+        LinearLayout linearLayout = null;
+//       根据labelPosition属性的值装载不同的布局文件
+        if ("left".equals(labelPosition))
+            linearLayout = (LinearLayout)li.inflate(R.layout.labeledittext_horizontal,this);
+        else if ("top".equals(labelPosition))
+            linearLayout = (LinearLayout)li.inflate(R.layout.labeledittext_vertical,this);
+        else
+            throw new RuntimeException("labelPosition属性只有left或者top");
+//  下面的代码从相应的布局文件中获得了TextView对象，并根据LabelTextView的属性值设置TextView的属性
+        textView = (TextView) findViewById(R.id.textview);
+        textView.setTextSize(labelFontSize);
+        textView.setText(labelText);
 
     }
 }
