@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.example.alan.handclock.HandClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        clockImageSrc="@drawable/clock1"
+        handCenterHeightScale="0.512"
+        handCenterWidthScale="0.477"
+        hourHandSize="40"
+        minuteHandSize="54"
+        scale="0.75" />
+
+</LinearLayout>

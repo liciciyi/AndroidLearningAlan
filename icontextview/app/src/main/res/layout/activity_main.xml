@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mobile="com.example.alan.icontextview.widget.iconTextView"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <com.example.alan.icontextview.widget.IconTextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="第一个图标"
+        android:textSize="24dp"
+        mobile:iconSrc="@drawable/android" />
+
+    <com.example.alan.icontextview.widget.IconTextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="第2个图标"
+        android:textSize="36dp"
+        mobile:iconSrc="@drawable/android" />
+
+    <com.example.alan.icontextview.widget.IconTextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="第3个图标"
+        android:textSize="48dp"
+        mobile:iconSrc="@drawable/android" />
+
+    <com.example.alan.icontextview.widget.IconTextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="第5个图标"
+        android:textSize="36dp"
+        mobile:iconSrc="@drawable/android" />
+
+    <com.example.alan.icontextview.widget.IconTextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="第6个图标"
+        android:textSize="60dp"
+        mobile:iconSrc="@drawable/android" />
+
+    <com.example.alan.icontextview.widget.IconTextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="第7个图标"
+        android:textSize="12dp"
+        mobile:iconSrc="@drawable/android" />
+
+</LinearLayout>

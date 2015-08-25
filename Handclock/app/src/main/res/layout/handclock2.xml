@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#FFF"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <com.example.alan.handclock.HandClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        clockImageSrc="@drawable/clock2"
+        handCenterHeightScale="0.5"
+        handCenterWidthScale="0.5"
+        hourHandSize="100"
+        minuteHandSize="154"
+        scale="0.4" />
+
+    <com.example.alan.handclock.HandClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        clockImageSrc="@drawable/clock3"
+        handCenterHeightScale="0.5"
+        handCenterWidthScale="0.5"
+        hourHandSize="100"
+        minuteHandSize="154"
+        scale="0.4" />
+
+</LinearLayout>
