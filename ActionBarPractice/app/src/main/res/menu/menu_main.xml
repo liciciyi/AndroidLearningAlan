@@ -8,10 +8,10 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item
-        android:id="@+id/menu_save"
-        android:icon="@drawable/save"
-        app:showAsAction="ifRoom|withText"
-        android:title="保存" />
+    android:id="@+id/menu_save"
+    android:icon="@drawable/save"
+    app:showAsAction="ifRoom|withText"
+    android:title="保存" />
     <item
         android:id="@+id/menu_open"
         android:icon="@drawable/open"
