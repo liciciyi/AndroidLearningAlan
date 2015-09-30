@@ -1,41 +1,16 @@
-package com.alan.actionbarpractice;
+package com.alan.invokesystem;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
-    private Button btnHideActionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        btnHideActionBar = (Button) findViewById(R.id.button_hide_show_actionbar);
-
-        Log.d("MainActvity-Alan","onCreate");.
-    }
-
-    public void onClick_HideActionBar(View view){
-        if (getSupportActionBar() == null){
-            Toast.makeText(this,"null",Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (getSupportActionBar().isShowing()){
-            getSupportActionBar().hide();
-            btnHideActionBar.setText("显示ActionBar");
-        }
-        else {
-            getSupportActionBar().show();
-            btnHideActionBar.setText("隐藏ActionBar");
-
-        }
+        setContentView(R.layout.main);
     }
 
     @Override
@@ -59,6 +34,4 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
 }
