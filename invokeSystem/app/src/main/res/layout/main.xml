@@ -4,52 +4,59 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <GridView
+
+    <Button
+        android:id="@+id/btnCall"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:text="直接拨号" />
 
-        <Button
-            android:id="@+id/btn1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="temp" />
+    <Button
+        android:id="@+id/btnTouchDialer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="将电话号传入拨号程序" />
 
-        <Button
-            android:id="@+id/btn6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="temp" />
+    <Button
+        android:id="@+id/btnDial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="调用拨号程序" />
 
-        <Button
-            android:id="@+id/btn7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="temp" />
+    <Button
+        android:id="@+id/btnWeb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="浏览网页" />
 
-        <Button
-            android:id="@+id/btn2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="temp" />
+    <Button
+        android:id="@+id/btnAudio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择音频程序" />
 
-        <Button
-            android:id="@+id/btn3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="temp" />
+    <Button
+        android:id="@+id/btnGoHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="回到Home界面" />
 
-        <Button
-            android:id="@+id/btn4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="temp" />
+    <Button
+        android:id="@+id/btnContactList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查看联系人" />
 
-        <Button
-            android:id="@+id/btn5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="temp" />
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="系统设置" />
 
-    </GridView>
+    <Button
+        android:id="@+id/btnWifiSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wifi设置" />
 
 </LinearLayout>
